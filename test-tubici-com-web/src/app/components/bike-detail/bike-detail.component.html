@@ -1,1 +1,29 @@
-<p>bike-detail works!</p>
+<p-card header="{{ product.bikeName }}" [style]="{'width': '100%', 'margin-bottom': '2em'}">
+  <ng-template pTemplate="header" [style]="{'text-align': 'center'}">
+      <img alt="Card" [src]="product.bikeImageUrl">
+  </ng-template>
+  <ng-template pTemplate="body">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Precio</th>
+          <th>Categoria</th>
+          <th>Tipo</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ product.bikePrice }}</td>
+          <td>{{ product.bikeCategory }}</td>
+          <td>{{ product.bikeType }}</td>
+          <td>{{ product.bikeInventoryStatus }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p-fieldset legend="Descripción" [toggleable]="true">
+      <p>{{ product.bikeDescription }}</p>
+    </p-fieldset>
+  </ng-template>
+ 
+</p-card>

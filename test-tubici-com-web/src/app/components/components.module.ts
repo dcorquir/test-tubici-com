@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BikeDetailComponent } from './bike-detail/bike-detail.component';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { HeaderComponent } from './header/header.component';
-
+import { PrimeNgModule } from '../shared/prime-ng/prime-ng.module';
 
 
 @NgModule({
@@ -13,9 +13,12 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PrimeNgModule
   ],
   exports: [
+    BikeDetailComponent,
+    ClientDetailComponent,
     HeaderComponent
   ]
 })

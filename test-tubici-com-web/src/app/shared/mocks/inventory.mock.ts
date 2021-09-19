@@ -5,9 +5,9 @@ export const inventoryMock = [
     bikeImageUrl: 'http://cdn.shopify.com/s/files/1/0483/2025/0023/products/bicicleta-electrica-Bogota-Transit-300W-bateria-electrica-servicio-tecnico-para-bicicleta-electrica-2-eltomacorriente.com.png?v=1622301991',
     bikeDescription: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.',
     bikeTypeId: 1,
-    bikeType: 'electrica',
+    bikeType: 'Electrica',
     bikeCategoryId: 1,
-    bikeCategory: 'premium',
+    bikeCategory: 'Premium',
     bikePrice: 30,
     bikeInventoryStatus: 'INSTOCK',
     bikeRating: 5
@@ -18,9 +18,9 @@ export const inventoryMock = [
     bikeImageUrl: 'http://cdn.shopify.com/s/files/1/0483/2025/0023/products/bicicleta-electrica-Bogota-Express-250W-bateria-electrica-servicio-tecnico-para-bicicleta-electrica-eltomacorriente.com.png?v=1622302481',
     bikeDescription: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.',
     bikeTypeId: 1,
-    bikeType: 'electrica',
+    bikeType: 'Electrica',
     bikeCategoryId: 2,
-    bikeCategory: 'basic',
+    bikeCategory: 'Basic',
     bikePrice: 10,
     bikeInventoryStatus: 'INSTOCK',
     bikeRating: 5
@@ -31,9 +31,9 @@ export const inventoryMock = [
     bikeImageUrl: 'https://cdn.shopify.com/s/files/1/0483/2025/0023/products/bicicleta-electrica-bogota-classic-250w-bateria-electrica-eltomacorriente.com_300x300.png?v=1622302721',
     bikeDescription: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.',
     bikeTypeId: 1,
-    bikeType: 'electrica',
+    bikeType: 'Electrica',
     bikeCategoryId: 2,
-    bikeCategory: 'basic',
+    bikeCategory: 'Basic',
     bikePrice: 10,
     bikeInventoryStatus: 'INSTOCK',
     bikeRating: 5
@@ -46,7 +46,7 @@ export const inventoryMock = [
     bikeTypeId: 2,
     bikeType: 'normal',
     bikeCategoryId: 1,
-    bikeCategory: 'premium',
+    bikeCategory: 'Premium',
     bikePrice: 30,
     bikeInventoryStatus: 'INSTOCK',
     bikeRating: 5
@@ -59,7 +59,7 @@ export const inventoryMock = [
     bikeTypeId: 2,
     bikeType: 'normal',
     bikeCategoryId: 2,
-    bikeCategory: 'basic',
+    bikeCategory: 'Basic',
     bikePrice: 10,
     bikeInventoryStatus: 'INSTOCK',
     bikeRating: 5
@@ -72,7 +72,7 @@ export const inventoryMock = [
     bikeTypeId: 2,
     bikeType: 'normal',
     bikeCategoryId: 2,
-    bikeCategory: 'basic',
+    bikeCategory: 'Basic',
     bikePrice: 10,
     bikeInventoryStatus: 'INSTOCK',
     bikeRating: 5
@@ -98,7 +98,7 @@ export const inventoryMock = [
     bikeTypeId: 3,
     bikeType: 'antigua',
     bikeCategoryId: 2,
-    bikeCategory: 'basic',
+    bikeCategory: 'Basic',
     bikePrice: 10,
     bikeInventoryStatus: 'INSTOCK',
     bikeRating: 5
@@ -111,7 +111,7 @@ export const inventoryMock = [
     bikeTypeId: 3,
     bikeType: 'antigua',
     bikeCategoryId: 2,
-    bikeCategory: 'basic',
+    bikeCategory: 'Basic',
     bikePrice: 10,
     bikeInventoryStatus: 'INSTOCK',
     bikeRating: 5

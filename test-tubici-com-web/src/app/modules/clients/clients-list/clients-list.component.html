@@ -1,1 +1,62 @@
-<p>clients-list works!</p>
+<div class="p-d-flex">
+  <div class="p-col-12 p-md-4 p-lg-4">
+    <p-table #dt1 
+            [value]="clients" 
+            responsiveLayout="scroll" 
+            [rows]="5" 
+            [paginator]="true" 
+            [rowsPerPageOptions]="[10,25,50]"
+            [showCurrentPageReport]="true" 
+            [globalFilterFields]="['clientName']">
+        <ng-template pTemplate="caption">
+          <h3>Clientes Registrados</h3>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Imagen</th>
+            <th>
+              <div class="p-d-flex p-jc-between p-ai-center">
+                Nombre
+                <p-columnFilter type="text" field="clientName" display="menu"></p-columnFilter>
+              </div>
+            </th>
+            <th>Email</th>
+            <th>Puntos</th>
+            <th>Acciones</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-client>
+          <tr>
+            <td>
+              <p-avatar [image]="client.clientImageUrl" pBadge [value]="client.clientPoints > 20 ? 'Gold' : 'Beginner'" [severity]="client.clientPoints > 20 ? 'warning' : 'info'" size="xlarge"></p-avatar>
+            </td>
+            <td>{{client.clientName}}</td>
+            <td>{{client.clientEmail}}</td>
+            <td>{{client.clientPoints}}</td>
+            <td>
+              <button pButton 
+                      pRipple 
+                      type="button" 
+                      icon="pi pi-eye" 
+                      class="p-button-rounded p-button-text"
+                      (click)="showClientDetail(client)"></button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+          <div class="p-d-flex p-ai-center p-jc-between">
+            En total hay {{clients ? clients.length : 0 }}.
+          </div>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+
+<p-dialog [(visible)]="showInfo" [style]="{width: '50vw'}">
+  <ng-template pTemplate="body">
+    <app-client-detail [client]="client" if="client !== null"></app-client-detail>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="closeClientDetail()" label="Ok" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
