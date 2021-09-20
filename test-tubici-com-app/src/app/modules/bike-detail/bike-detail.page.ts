@@ -26,13 +26,22 @@ export class BikeDetailPage implements OnInit {
   }
 
   /**
+   * @description This method is to ge bike info by id
    * 
+   * @author Diego Mauricio Cortés
+   * @sprint 1
    */
   getInfoIdRouteParam(): void {
     this.id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
     this.bike = this.bikeServiceDetail.getBikeById(this.id);
   }
 
+  /**
+   * @description This method is to send the shop
+   * 
+   * @author Diego Mauricio Cortés
+   * @sprint 1
+   */
   toShop(): void {
     this.router.navigate([`/bike-shop/${this.id}`]);
   }

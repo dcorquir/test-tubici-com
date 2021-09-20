@@ -36,22 +36,36 @@ export class BikeShopPage implements OnInit {
     this.getInfoIdRouteParam();
   }
 
+  /**
+   * @description This method is to prepare today param for limit select dates
+   * 
+   * @author Diego Mauricio Cortés
+   * @sprint 1
+   */
   prepareTodayParam(): void {
     this.today = TimeUtils.getTodayString();
-    console.log('this.today', this.today);
   }
 
+  /**
+   * @description This method is to get bike info to show
+   * 
+   * @author Diego Mauricio Cortes
+   * @sprint 1
+   */
   getInfoIdRouteParam(): void {
     this.id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
     this.bike = this.bikeServiceDetail.getBikeById(this.id);
   }
 
+  /**
+   * @description This method is to calculate the total by date range selected to buy
+   * 
+   * @author Diego Mauricio Cortés
+   * @sprint 1
+   */
   calculateTotal() {
-    console.log('initDate', this.initDate);
-    console.log('endDate', this.endDate);
     if (this.initDate && this.endDate) {
       let diDays = TimeUtils.difDaysDates(this.initDate, this.endDate);
-      console.log('difDays', diDays);
       switch(this.bike.bikeTypeId) {
         case 1:
           this.total = (this.bike.bikePrice * diDays);
@@ -75,6 +89,16 @@ export class BikeShopPage implements OnInit {
     }
   }
 
+  /**
+   * @description This method is to show alert
+   * 
+   * @param header 
+   * @param subtitle 
+   * @param message 
+   * @param buttons 
+   * @author Diego Mauricio Cortes
+   * @sprint 1
+   */
   async presentAlert(header: string, subtitle: string, message: string, buttons: string[]) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
@@ -87,9 +111,14 @@ export class BikeShopPage implements OnInit {
     await alert.present();
 
     const { role } = await alert.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
   }
 
+  /**
+   * @description This method is to send rent data
+   * 
+   * @author Diego Mauricio Cortés
+   * @sprint 1
+   */
   send() {
     let resp = this.bikeShopService.save(this.bike, this.initDate, this.endDate, this.total);
     if (resp) {

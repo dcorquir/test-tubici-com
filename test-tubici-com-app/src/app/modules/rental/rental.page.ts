@@ -6,7 +6,6 @@ import { IRental } from './interfaces/rental.interface';
 
 import { RentalService } from './rental.service';
 
-
 @Component({
   selector: 'app-rental',
   templateUrl: './rental.page.html',

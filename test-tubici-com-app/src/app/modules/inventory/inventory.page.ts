@@ -74,6 +74,13 @@ export class InventoryPage implements OnInit {
     }
   }
 
+  /**
+   * @description This method is for go to detail page
+   * 
+   * @param bike 
+   * @author Diego Mauricio Cortés
+   * @sprint 1
+   */
   showDetail(bike: IInventory): void {
     this.router.navigate([`/bike-detail/${bike.id}`]);
   }
