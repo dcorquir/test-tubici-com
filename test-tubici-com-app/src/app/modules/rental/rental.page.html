@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>ALquiler</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list *ngIf="history.length === 0">
+    <ion-item>
+      Sin elementos.
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="history.length > 0">
+    
+    <ion-item *ngFor="let hst of history" (click)="showDetail(hst.bike)">
+      <ion-avatar slot="start">
+        <img [src]="hst.bike.bikeImageUrl">
+      </ion-avatar>
+      <ion-label>
+        <h2>
+          {{hst.bike.bikeName}}
+        </h2>
+        <ion-chip>
+          <ion-icon name="calendar-outline" color="primary"></ion-icon>
+          <ion-label>{{ hst.initDate | date:'shortDate' }}</ion-label>
+        </ion-chip>
+        <ion-chip>
+          <ion-icon name="calendar-outline" color="primary"></ion-icon>
+          <ion-label>{{ hst.endDate | date:'shortDate' }}</ion-label>
+        </ion-chip>
+        <br/>
+        <ion-chip>
+          <ion-icon name="logo-euro" color="primary"></ion-icon>
+          <ion-label>{{ hst.total }}</ion-label>
+        </ion-chip>
+        <ion-chip>
+          <ion-icon name="logo-electron" color="primary"></ion-icon>
+          <ion-label>{{ hst.bike.bikeType }}</ion-label>
+        </ion-chip>
+        <ion-chip>
+          <ion-icon name="barcode-outline" color="primary"></ion-icon>
+          <ion-label>{{ hst.bike.bikeCategory }}</ion-label>
+        </ion-chip>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
