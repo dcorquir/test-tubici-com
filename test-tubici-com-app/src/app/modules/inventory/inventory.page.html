@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Catálogo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar placeholder="Buscar..." [(ngModel)]="nameFilter" animated="true" (ionChange)="filterCatalogByName()"></ion-searchbar>
+  <ion-list>
+    <ion-list-header>
+      Bicicletas dispibles
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Filtro</ion-label>
+      <ion-select [value]="0" [(ngModel)]="categorySelect" (ionChange)="filterCatalogByCategory()">
+        <ion-select-option [value]="0">Todas</ion-select-option>
+        <ion-select-option [value]="category.id" *ngFor="let category of categoriesList">{{ category.description }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngFor="let bike of catalogList" (click)="showDetail(bike)">
+      <ion-avatar slot="start">
+        <img [src]="bike.bikeImageUrl">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{bike.bikeName}}</h2>
+        <h3><ion-badge color="primary">{{ bike.bikeType }}</ion-badge> &nbsp; <ion-badge color="tertiary">{{bike.bikeCategory}}</ion-badge></h3>
+        <p>{{bike.bikeDescription | slice:0:50}}...</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

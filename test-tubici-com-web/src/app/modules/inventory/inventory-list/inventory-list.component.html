@@ -1,0 +1,67 @@
+<div class="p-d-flex">
+  <div class="p-col-12 p-md-4 p-lg-4">
+    <p-table #dt1 
+            [value]="products" 
+            responsiveLayout="scroll" 
+            [rows]="5" 
+            [paginator]="true" 
+            [rowsPerPageOptions]="[10,25,50]"
+            [showCurrentPageReport]="true" 
+            [globalFilterFields]="['bikeName']">
+      <ng-template pTemplate="caption">
+        <h3>Inventario</h3>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>
+            <div class="p-d-flex p-jc-between p-ai-center">
+              Nombre
+              <p-columnFilter type="text" field="bikeName" display="menu"></p-columnFilter>
+            </div>
+          </th>
+          <th>Imagen</th>
+          <th>Precio</th>
+          <th>Categoria</th>
+          <th>Tipo</th>
+          <th>Status</th>
+          <th>Alquiler</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td>{{product.bikeName}}</td>
+          <td>
+            <img [src]="product.bikeImageUrl" [alt]="product.name" width="100" class="p-shadow-4" />
+          </td>
+          <td>{{product.bikePrice | currency:'EUR'}}</td>
+          <td>{{product.bikeCategory}}</td>
+          <td>{{product.bikeType}}</td>
+          <td>
+            <span
+              [class]="'product-badge status-' + product.bikeInventoryStatus.toLowerCase()">{{product.bikeInventoryStatus}}</span>
+          </td>
+          <td>{{ getBuy(product) | currency:'EUR' }}</td>
+          <td>
+            <button pButton pRipple type="button" icon="pi pi-eye" class="p-button-rounded p-button-text"
+              (click)="showBikeDetail(product)"></button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="summary">
+        <div class="p-d-flex p-ai-center p-jc-between">
+          En total hay {{products ? products.length : 0 }}.
+        </div>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+
+<p-dialog [(visible)]="showInfo" [style]="{width: '50vw'}">
+  <ng-template pTemplate="body">
+    <app-bike-detail [product]="product" if="product !== null"></app-bike-detail>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="closeBikeDetail()" label="Ok" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>

@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Alquiler</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card style="text-align: center;">
+    <img [src]="bike.bikeImageUrl" style="width: 40%;" />
+    <ion-card-header>
+      <ion-card-title>{{ bike.bikeName }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-chip>
+        <ion-icon name="logo-euro" color="primary"></ion-icon>
+        <ion-label>{{ bike.bikePrice }}</ion-label>
+      </ion-chip>
+      <ion-chip>
+        <ion-icon name="logo-electron" color="primary"></ion-icon>
+        <ion-label>{{ bike.bikeType }}</ion-label>
+      </ion-chip>
+      <ion-chip>
+        <ion-icon name="barcode-outline" color="primary"></ion-icon>
+        <ion-label>{{ bike.bikeCategory }}</ion-label>
+      </ion-chip>
+      
+      <ion-list>
+        <ion-list-header>
+          Formulario de alquiler
+        </ion-list-header>
+        <ion-item>
+          <ion-label >Desde:</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" 
+                        [min]="today" 
+                        [(ngModel)]="initDate"
+                        (ionChange)="calculateTotal()"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label >Hasta</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" 
+                        [min]="today" 
+                        [(ngModel)]="endDate"
+                        (ionChange)="calculateTotal()"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label >Total</ion-label>
+          <ion-chip>
+            <ion-icon name="logo-euro" color="primary"></ion-icon>
+            <ion-label>{{ total }}</ion-label>
+          </ion-chip>
+        </ion-item>
+      </ion-list>
+
+      <section class="full-width">
+        <ion-button expand="full" (click)="send()" [disabled]="!initDate || !endDate">
+          <ion-icon name="send-outline"></ion-icon> Enviar
+        </ion-button>
+      </section>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
